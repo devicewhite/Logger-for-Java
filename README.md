@@ -1,65 +1,59 @@
-# EasyUnzip Tool
+# Logger Tool
 
 ## English
 
 ### Description
-The EasyUnzip tool is a simple Java class designed to facilitate the extraction of files from a zip archive on Android devices. It can be used by Android developers who want a straightforward way to unzip files within their mobile applications.
+The Logger tool is a simple utility class for Android applications to write log messages to a file in the "Logs" directory on external storage. It is designed to provide an easy way to log information with timestamps.
 
 ### Usage
 
-1. **Include EasyUnzip in your project:**
-   - Copy the `EasyUnzip.java` file into your Android project's source code.
+1. **Include Logger in your project:**
+   - Copy the `Logger.java` file into your Android project's source code.
 
-2. **Initialize EasyUnzip:**
+2. **Initialize Logger:**
    ```java
    // Example usage in an Android activity
-   File zipFile = Environment.getExternalStoragePublicDirectory("Download/yourZipFile.zip");
-   File extractionPath = Environment.getExternalStoragePublicDirectory("Download/zipFileExtracted");
-   EasyUnzip easyUnzip = new EasyUnzip(zipFile, extractionPath);
+   File logDir = Environment.getExternalStoragePublicDirectory("Logs");
+   Logger logger = new Logger(logDir);
    ```
 
-3. **Execute Unzipping:**
+3. **Write Log Messages:**
    ```java
-   // Call the execute method to start the extraction process
-   if (easyUnzip.execute()) {
-       // Extraction successful
-   } else {
-       // Extraction failed
-   }
+   // Call the write method to log a message
+   String logFileName = "exampleLog";
+   String logMessage = "This is a log message.";
+   logger.write(logFileName, logMessage);
    ```
 
 4. **Additional Notes:**
-   - If needed, customize the tool according to your specific requirements.
+   - Customize the log file name as needed.
    - Ensure appropriate permissions to read and write files on the device.
 
 ## Português
 
 ### Descrição
-A ferramenta EasyUnzip é uma classe Java simples projetada para facilitar a extração de arquivos de um arquivo zip em dispositivos Android. Pode ser utilizada por desenvolvedores Android que desejam uma maneira direta de descompactar arquivos em suas aplicações móveis.
+A ferramenta Logger é uma classe de utilidade simples para aplicativos Android, projetada para escrever mensagens de log em um arquivo no diretório "Logs" no armazenamento externo. Ela foi criada para oferecer uma maneira fácil de registrar informações com carimbos de data e hora.
 
 ### Uso
 
-1. **Inclua o EasyUnzip no seu projeto:**
-   - Copie o arquivo `EasyUnzip.java` para o código-fonte do seu projeto Android.
+1. **Inclua o Logger no seu projeto:**
+   - Copie o arquivo `Logger.java` para o código-fonte do seu projeto Android.
 
-2. **Inicialize o EasyUnzip:**
+2. **Inicialize o Logger:**
    ```java
    // Exemplo de uso em uma atividade Android
-   File zipFile = Environment.getExternalStoragePublicDirectory("Download/seuArquivoZip.zip");
-   File localExtracao = Environment.getExternalStoragePublicDirectory("Download/arquivoZipExtraido");
-   EasyUnzip easyUnzip = new EasyUnzip(zipFile, localExtracao);
+   File logDir = Environment.getExternalStoragePublicDirectory("Logs");
+   Logger logger = new Logger(logDir);
    ```
 
-3. **Execute a Descompactação:**
+3. **Escreva Mensagens de Log:**
    ```java
-   // Chame o método execute para iniciar o processo de extração
-   if (easyUnzip.execute()) {
-       // Extração bem-sucedida
-   } else {
-       // Falha na extração
-   }
+   // Chame o método write para registrar uma mensagem
+   String nomeArquivoLog = "exemploLog";
+   String mensagemLog = "Esta é uma mensagem de log.";
+   logger.write(nomeArquivoLog, mensagemLog);
    ```
 
 4. **Notas Adicionais:**
-   - Se necessário, customize a ferramenta de acordo com seus requisitos específicos.
-   - Certifique-se de ter as permissões apropriadas para ler e escrever arquivos no dispositivo.
+   - Personalize o nome do arquivo de log conforme necessário.
+   - Certifique-se de ter as permissões adequadas para ler e escrever arquivos no dispositivo.
